@@ -1,8 +1,6 @@
-﻿namespace Pokedex
+﻿namespace Pokedex.Exception
 {
-    using System;
-
-    public class InvalidCsvDataException : Exception
+    public class InvalidCsvDataException : System.Exception
     {
         public InvalidCsvDataException(string message)
             : base(message)

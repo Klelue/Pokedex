@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Resources;
 using Microsoft.AspNetCore.Http;
+using Pokedex.Exception;
 using Pokedex.Interfaces;
 
 namespace Pokedex.Validators
@@ -30,5 +31,4 @@ namespace Pokedex.Validators
         }
         }
 
-}
 }

@@ -32,7 +32,6 @@
     <Folder Include="Constants\" />
     <Folder Include="Converters\" />
     <Folder Include="Middleware\" />
-    <Folder Include="Parser\" />
   </ItemGroup>
 
 </Project>

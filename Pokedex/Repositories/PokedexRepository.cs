@@ -6,7 +6,7 @@ using Pokedex.Models;
 
 namespace Pokedex.Repositories
 {
-    public class PokedexRepository : IPokedexRepositorx
+    public class PokedexRepository : IPokedexRepository
     {
         private readonly PokedexDbContext dbContext;
 

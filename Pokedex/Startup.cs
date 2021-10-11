@@ -2,19 +2,14 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.AzureAD.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Pokedex.Converters;
 using Pokedex.Interfaces;
+using Pokedex.Parser;
 using Pokedex.Repositories;
 using Pokedex.Services;
 using Pokedex.Validators;
@@ -35,11 +30,13 @@ namespace Pokedex
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IPokedexRepositorx, PokedexRepository>();
+            services.AddScoped<IPokedexRepository, PokedexRepository>();
             services.AddScoped<IImportService, ImportService>();
             services.AddScoped<IFileValidator, FileValidator>();
             services.AddScoped<IPokemonService, PokemonService>();
-            services.AddScoped<IPokemonEntriesValidator, PokemonEntriesValidator>();
+            services.AddScoped<IPokemonValidator, PokemonValidator>();
+            services.AddScoped<ICsvToStringConverter, CsvToStringConverter>();
+            services.AddScoped<IStringToPokemonParser, StringToPokemonParser>();
 
 
 

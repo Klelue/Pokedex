@@ -117,16 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="NoBool" xml:space="preserve">
+    <value>Legendary was nor true or false.</value>
+  </data>
   <data name="NoDataInFile" xml:space="preserve">
     <value>File contains no Data.</value>
   </data>
   <data name="NoFile" xml:space="preserve">
     <value>No file was passed as parameter.</value>
   </data>
+  <data name="NoInt" xml:space="preserve">
+    <value>This value {0} for {1} was not an integer.</value>
+  </data>
   <data name="NoUniquePokemon" xml:space="preserve">
     <value>The file should contains only unique Pokemon.The nationalDexNumber is not unique: {0}</value>
   </data>
+  <data name="TotalOutOfRange" xml:space="preserve">
+    <value>The total value {0} is out of Range.</value>
+  </data>
   <data name="WrongFileFormat" xml:space="preserve">
     <value>Wrong File Format. It should be {0}.</value>
+  </data>
+  <data name="WrongTyp" xml:space="preserve">
+    <value>Typ {0} is not a valid typ.</value>
+  </data>
+  <data name="WrongValues" xml:space="preserve">
+    <value>Stats not same as total.</value>
   </data>
 </root>

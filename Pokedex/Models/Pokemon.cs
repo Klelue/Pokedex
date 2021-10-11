@@ -8,9 +8,8 @@ namespace Pokedex.Models
 {
     public class Pokemon
     {
-        [Key]
-        public int nationalDexNumber { get; set; }
-        
+        [Key] public int nationalDexNumber { get; set; }
+
         public string name { get; set; }
 
         public Typ type1 { get; set; }
@@ -34,6 +33,5 @@ namespace Pokedex.Models
         public int generation { get; set; }
 
         public bool legendary { get; set; }
-
     }
 }

@@ -3,7 +3,7 @@ using Pokedex.Models;
 
 namespace Pokedex.Interfaces
 {
-    public interface IPokedexRepositorx
+    public interface IPokedexRepository
     {
         List<Pokemon> GetAllPokemons();
 

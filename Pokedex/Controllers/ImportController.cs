@@ -11,13 +11,11 @@ namespace Pokedex.Controllers
     [Route("api/[controller]")]
     public class ImportController : ControllerBase
     {
-        private readonly PokedexDbContext context;
         private readonly ICsvToStringConverter csvToStringConverter;
         private readonly IImportService importService;
 
-        public ImportController(PokedexDbContext context, ICsvToStringConverter csvToStringConverterm, IImportService importService)
+        public ImportController(ICsvToStringConverter csvToStringConverterm, IImportService importService)
         {
-            this.context = context;
             this.csvToStringConverter = csvToStringConverterm;
             this.importService = importService;
         }

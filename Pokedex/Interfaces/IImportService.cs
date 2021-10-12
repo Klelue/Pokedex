@@ -4,6 +4,6 @@ namespace Pokedex.Interfaces
 {
     public interface IImportService
     {
-        void ImportPokemons(IEnumerable<string> importFile);
+        void ImportPokemons(IList<string> importFile);
     }
 }

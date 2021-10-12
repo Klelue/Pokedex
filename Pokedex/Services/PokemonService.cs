@@ -19,7 +19,7 @@ namespace Pokedex.Services
 
         public Pokemon GetPokemonWithDexNumber(int dexNumber)
         {
-           return pokedexRepositorx.FindPokemonWithDexNumber(dexNumber);
+            return pokedexRepositorx.FindPokemonWithDexNumber(dexNumber);
         }
 
         public IEnumerable<Pokemon> GetAllPokemonsWithTypOf(string typName)

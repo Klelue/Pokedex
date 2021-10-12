@@ -16,13 +16,12 @@ namespace Pokedex.Validators
             new ResourceManager("Pokedex.Resources.ExceptionMessages", Assembly.GetExecutingAssembly());
 
 
-        public void ValidateUniquenessForPokemon(IEnumerable<Pokemon> pokemons)
+        public void ValidateUniquenessForPokemon(IList<Pokemon> pokemons)
         {
-            IEnumerable<int> notUniquePokemons =
-                pokemons.Select(pokemon => pokemon.nationalDexNumber).
-                    GroupBy(nationalDexNumber => nationalDexNumber)
-                    .Where(groupedNationalDexNumber => groupedNationalDexNumber.Count() > 1)
-                    .Select(groupedNationalDexNumber => groupedNationalDexNumber.Key);
+            IEnumerable<Pokemon> notUniquePokemons = pokemons.Where(pokemon =>
+                pokemons
+                    .Count(p => p.nationalDexNumber == pokemon.nationalDexNumber && p.name.Equals(pokemon.name)) > 1);
+            
 
             if (notUniquePokemons.Any())
             {

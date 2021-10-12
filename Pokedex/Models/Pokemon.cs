@@ -10,7 +10,7 @@ namespace Pokedex.Models
     {
         [Key] public int nationalDexNumber { get; set; }
 
-        public string name { get; set; }
+        [Key] public string name { get; set; }
 
         public Typ type1 { get; set; }
 

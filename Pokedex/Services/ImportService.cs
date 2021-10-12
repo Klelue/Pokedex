@@ -20,7 +20,7 @@ namespace Pokedex.Services
             this.stringToPokemonParser = stringToPokemonParser;
             this.dbContext = dbContext;
         }
-        public void ImportPokemons(IEnumerable<string> importFile)
+        public void ImportPokemons(IList<string> importFile)
         {
             List<Pokemon> pokemons = createPokemons(importFile);
             validatorPokemon.ValidateUniquenessForPokemon(pokemons);
@@ -28,7 +28,7 @@ namespace Pokedex.Services
 
         }
 
-        private List<Pokemon> createPokemons(IEnumerable<string> importFile)
+        private List<Pokemon> createPokemons(IList<string> importFile)
         {
             List<Pokemon> pokemons = new List<Pokemon>();
             foreach (string pokemonAsString in importFile)

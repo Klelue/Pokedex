@@ -38,7 +38,7 @@ namespace Pokedex.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pokemon", x => x.nationalDexNumber);
+                    table.PrimaryKey("PK_Pokemon", x => new { x.nationalDexNumber, x.name});
                     table.ForeignKey(
                         name: "FK_Pokemon_Typ_type1name",
                         column: x => x.type1name,

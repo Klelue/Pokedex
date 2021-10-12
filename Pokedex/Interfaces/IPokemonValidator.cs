@@ -6,7 +6,7 @@ namespace Pokedex.Interfaces
 {
     public interface IPokemonValidator
     {
-        public void ValidateUniquenessForPokemon(IEnumerable<Pokemon> pokemons);
+        public void ValidateUniquenessForPokemon(IList<Pokemon> pokemons);
 
         public void ValidateTotal(int total);
 

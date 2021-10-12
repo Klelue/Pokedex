@@ -7,24 +7,45 @@ namespace Pokedex.Services
     public class PokemonService : IPokemonService
     {
         private readonly IPokedexRepository pokedexRepositorx;
+        private readonly IRequestValidator requestValidator;
+        private readonly PokedexDbContext context;
 
-        public PokemonService(IPokedexRepository pokedexRepositorx)
+
+        public PokemonService(IPokedexRepository pokedexRepositorx, IRequestValidator requestValidator, PokedexDbContext context)
         {
             this.pokedexRepositorx = pokedexRepositorx;
+            this.requestValidator = requestValidator;
+            this.context = context;
         }
-        public IEnumerable<Pokemon> GetAllPokemons()
+        public IList<Pokemon> GetAllPokemons()
         {
+            CheckIfPokemonImported();
             return pokedexRepositorx.GetAllPokemons();
         }
 
-        public Pokemon GetPokemonWithDexNumber(int dexNumber)
+        public IList<Pokemon> GetPokemonWithDexNumber(int dexNumber)
         {
-            return pokedexRepositorx.FindPokemonWithDexNumber(dexNumber);
+            requestValidator.ValidateDexNumber(dexNumber);
+            CheckIfPokemonImported();
+
+            IList<Pokemon> pokemonWithDexNumber = pokedexRepositorx.FindPokemonWithDexNumber(dexNumber);
+            requestValidator.ValidateFoundPokemon(pokemonWithDexNumber);
+            return pokemonWithDexNumber;
         }
 
-        public IEnumerable<Pokemon> GetAllPokemonsWithTypOf(string typName)
+        public IList<Pokemon> GetAllPokemonsWithTypOf(string typName)
         {
-            return pokedexRepositorx.findAllPokemonsWithTypOF(typName);
+            requestValidator.ValidateTyp(typName, context);
+            CheckIfPokemonImported();
+
+            IList<Pokemon> pokemonWithTypOf = pokedexRepositorx.findAllPokemonsWithTypOF(typName);
+            requestValidator.ValidateFoundPokemon(pokemonWithTypOf);
+            return pokemonWithTypOf;
+        }
+
+        private void CheckIfPokemonImported()
+        {
+            requestValidator.ValidateImportedPokemon(context);
         }
     }
 }

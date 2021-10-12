@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.AzureAD.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Pokedex.Converters;
 using Pokedex.Interfaces;
+using Pokedex.Middleware;
 using Pokedex.Parser;
 using Pokedex.Repositories;
 using Pokedex.Services;
@@ -37,13 +36,12 @@ namespace Pokedex
             services.AddScoped<IPokemonValidator, PokemonValidator>();
             services.AddScoped<ICsvToStringConverter, CsvToStringConverter>();
             services.AddScoped<IStringToPokemonParser, StringToPokemonParser>();
+            services.AddScoped<IRequestValidator,RequestValidator>();
 
 
 
             services.AddDbContext<PokedexDbContext>(option =>
                 option.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddAuthentication(AzureADDefaults.BearerAuthenticationScheme)
-                .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
 
             services.AddSwaggerGen(c =>
             {
@@ -61,11 +59,12 @@ namespace Pokedex
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pokedex v1"));
             }
 
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

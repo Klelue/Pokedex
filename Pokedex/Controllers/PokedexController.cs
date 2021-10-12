@@ -26,7 +26,7 @@ namespace Pokedex.Controllers
         }
 
         [HttpGet("{number}")]
-        public Pokemon Get(int number)
+        public IEnumerable<Pokemon> Get(int number)
         {
             return pokemonService.GetPokemonWithDexNumber(number);
         }

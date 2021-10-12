@@ -19,9 +19,9 @@ namespace Pokedex.Repositories
             return dbContext.Pokemon.ToList();
         }
 
-        public Pokemon FindPokemonWithDexNumber(int nationalDexNumber)
+        public List<Pokemon> FindPokemonWithDexNumber(int nationalDexNumber)
         {
-            return dbContext.Pokemon.FirstOrDefault(pokemon => pokemon.nationalDexNumber.Equals(nationalDexNumber));
+            return dbContext.Pokemon.Where(pokemon => pokemon.nationalDexNumber.Equals(nationalDexNumber)).ToList();
         }
 
         public List<Pokemon> findAllPokemonsWithTypOF(string typName)

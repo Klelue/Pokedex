@@ -7,7 +7,7 @@ namespace Pokedex.Interfaces
     {
         List<Pokemon> GetAllPokemons();
 
-        Pokemon FindPokemonWithDexNumber(int nationalDexNumber);
+        List<Pokemon> FindPokemonWithDexNumber(int nationalDexNumber);
 
         List<Pokemon> findAllPokemonsWithTypOF(string typName);
 

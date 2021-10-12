@@ -5,10 +5,10 @@ namespace Pokedex.Interfaces
 {
     public interface IPokemonService
     {
-        public IEnumerable<Pokemon> GetAllPokemons();
+        public IList<Pokemon> GetAllPokemons();
 
-        public Pokemon GetPokemonWithDexNumber(int dexNumber);
+        public IList<Pokemon> GetPokemonWithDexNumber(int dexNumber);
 
-        public IEnumerable<Pokemon> GetAllPokemonsWithTypOf(string typName);
+        public IList<Pokemon> GetAllPokemonsWithTypOf(string typName);
     }
 }

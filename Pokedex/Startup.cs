@@ -13,7 +13,6 @@ using Pokedex.Repositories;
 using Pokedex.Services;
 using Pokedex.Validators;
 
-
 namespace Pokedex
 {
     public class Startup
@@ -37,7 +36,7 @@ namespace Pokedex
             services.AddScoped<ICsvToStringConverter, CsvToStringConverter>();
             services.AddScoped<IStringToPokemonParser, StringToPokemonParser>();
             services.AddScoped<IRequestValidator,RequestValidator>();
-
+            services.AddMvc();
 
 
             services.AddDbContext<PokedexDbContext>(option =>

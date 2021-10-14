@@ -57,12 +57,12 @@ namespace Pokedex.Validators
 
         public Typ ValidateTyp(string typName, PokedexDbContext dbContext)
         {
-            if (typName == "")
+            if (typName.Length > 1)
             {
-                Typ typ = dbContext.Typ.First(t => t.name.Equals(typName));
+                Typ typ = dbContext.Typ.Find(typName);
                 if (typ == null)
                 {
-                    string message = string.Format(ResourceManager.GetString("WrongTyp") ?? string.Empty, typ);
+                    string message = string.Format(ResourceManager.GetString("WrongTyp") ?? string.Empty, typName);
                     throw new WrongTypException(message);
                 }
 

@@ -25,8 +25,15 @@ namespace Pokedex
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            GeneratedTyps typs = new GeneratedTyps();
-            modelBuilder.Entity<Typ>().HasData(typs.GetTyps());
+            modelBuilder.Entity<Pokemon>().HasKey(pokemon => new {pokemon.nationalDexNumber, pokemon.name});
+            GeneratedTyps generaterTyps = new GeneratedTyps();
+            List<Typ> typs = generaterTyps.GetTyps();
+            foreach (var typ in typs)
+            {
+                modelBuilder.Entity<Typ>().HasData(typ);
+            }
+            
+            modelBuilder.Entity<Typ>().HasKey(typ => typ.typName);
         }
 
 

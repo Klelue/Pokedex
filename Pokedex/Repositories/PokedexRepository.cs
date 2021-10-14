@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Pokedex.Interfaces;
 using Pokedex.Models;
 
@@ -16,17 +17,19 @@ namespace Pokedex.Repositories
 
         public List<Pokemon> GetAllPokemons()
         { 
-            return dbContext.Pokemon.ToList();
+            return dbContext.Pokemon .Include(pokemon => pokemon.type1).Include(p => p.type2).ToList();
         }
 
         public List<Pokemon> FindPokemonWithDexNumber(int nationalDexNumber)
         {
-            return dbContext.Pokemon.Where(pokemon => pokemon.nationalDexNumber.Equals(nationalDexNumber)).ToList();
+            return dbContext.Pokemon.Where(pokemon => pokemon.nationalDexNumber.Equals(nationalDexNumber))
+                .Include(pokemon => pokemon.type1).Include(p => p.type2).ToList();
         }
 
         public List<Pokemon> findAllPokemonsWithTypOF(string typName)
         {
-            return dbContext.Pokemon.Where(pokemon => pokemon.type1.name.Equals(typName) || pokemon.type2.name.Equals(typName)).ToList();
+            return dbContext.Pokemon.Where(pokemon => pokemon.type1.typName.Equals(typName) || pokemon.type2.typName.Equals(typName))
+                .Include(pokemon => pokemon.type1).Include(p => p.type2).ToList();
         }
 
         public void Save(IEnumerable<Pokemon> pokemons)

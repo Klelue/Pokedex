@@ -17,8 +17,6 @@ namespace Pokedex.Middleware
         private readonly RequestDelegate next;
         private readonly IDictionary<Type, Func<HttpContext, System.Exception, Task>> exceptionHandlers;
 
-        private IWebHostEnvironment hostEnvironment;
-
         public ExceptionHandlerMiddleware(RequestDelegate next)
         {
             this.next = next;
@@ -39,16 +37,14 @@ namespace Pokedex.Middleware
         }
 
         public async Task Invoke(
-            HttpContext context,
-            IWebHostEnvironment webHostEnvironment)
+            HttpContext context)
         {
             try
             {
                 await this.next(context);
             }
             catch (System.Exception exception)
-            { 
-                this.hostEnvironment = webHostEnvironment;
+            {
                 await this.HandleExceptionAsync(context, exception);
             }
         }

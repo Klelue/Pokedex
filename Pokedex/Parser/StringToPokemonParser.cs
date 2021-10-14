@@ -34,8 +34,8 @@ namespace Pokedex.Parser
             pokemon.spDefense = TryToParseToInt(valuesList[9], "spDefense");
             pokemon.speed = TryToParseToInt(valuesList[10], "speed");
             pokemonValidator.ValidatesValues(pokemon);
-            pokemon.generation = TryToParseToInt(valuesList[12], "generation");
-            pokemon.legendary = TryToParseToBool(valuesList[13]);
+            pokemon.generation = TryToParseToInt(valuesList[11], "generation");
+            pokemon.legendary = TryToParseToBool(valuesList[12]);
             return pokemon;
         }
 

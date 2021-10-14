@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pokedex.Models
 {
     public class Typ
     {
-        public Typ(string name)
+        public Typ(string typName)
         {
-            this.name = name;
+            this.typName = typName;
         }
 
         [Key]
-        public string name { get; set; }
+        public string typName { get; set; }
 
+        [NotMapped]
         public List<Typ> superEffectiveAgainstTyps { get; set; }
 
+        [NotMapped]
         public List<Typ> notVeryEffectiveAgainstTyps { get; set; }
 
+        [NotMapped]
         public List<Typ> noEffectTyps { get; set; }
     }
 }

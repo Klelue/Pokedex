@@ -25,14 +25,14 @@ namespace Pokedex.Controllers
             return pokemonService.GetAllPokemons();
         }
 
-        [HttpGet("{number}")]
-        public IEnumerable<Pokemon> Get(int number)
+        [HttpGet("dexnumber/{number}")]
+        public IEnumerable<Pokemon> GetPokemonWithNumber(int number)
         {
             return pokemonService.GetPokemonWithDexNumber(number);
         }
 
-        [HttpGet("{typName}")]
-        public IEnumerable<Pokemon> Get(string typName)
+        [HttpGet("typname/{typName}")]
+        public IEnumerable<Pokemon> GetPokemonWithTypName(string typName)
         {
             return pokemonService.GetAllPokemonsWithTypOf(typName);
         }

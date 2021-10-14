@@ -19,24 +19,24 @@ namespace Pokedex.Resources
 
         private void GenerateTyps()
         {
-            var normalTyp = new Typ("normal");
-            var fireTyp = new Typ("fire");
-            var waterTyp = new Typ("water");
-            var grassTyp = new Typ("grass");
-            var electricTyp = new Typ("electric");
-            var iceTyp = new Typ("ice");
-            var fightingTyp = new Typ("fighting");
-            var poisonTyp = new Typ("poison");
-            var groundTyp = new Typ("ground");
-            var flyingTyp = new Typ("flying");
-            var psychoTyp = new Typ("psycho");
-            var bugTyp = new Typ("bug");
-            var rockTyp = new Typ("rock");
-            var ghostTyp = new Typ("ghost");
-            var darkTyp = new Typ("dark");
-            var dragonTyp = new Typ("dragon");
-            var steelTyp = new Typ("steel");
-            var fairyTyp = new Typ("fairy");
+            var normalTyp = new Typ("Normal");
+            var fireTyp = new Typ("Fire");
+            var waterTyp = new Typ("Water");
+            var grassTyp = new Typ("Grass");
+            var electricTyp = new Typ("Electric");
+            var iceTyp = new Typ("Ice");
+            var fightingTyp = new Typ("Fighting");
+            var poisonTyp = new Typ("Poison");
+            var groundTyp = new Typ("Ground");
+            var flyingTyp = new Typ("Flying");
+            var psychictyp = new Typ("Psychic");
+            var bugTyp = new Typ("Bug");
+            var rockTyp = new Typ("Rock");
+            var ghostTyp = new Typ("Ghost");
+            var darkTyp = new Typ("Dark");
+            var dragonTyp = new Typ("Dragon");
+            var steelTyp = new Typ("Steel");
+            var fairyTyp = new Typ("Fairy");
 
             normalTyp.notVeryEffectiveAgainstTyps = new List<Typ>()
             {
@@ -105,7 +105,7 @@ namespace Pokedex.Resources
 
             fightingTyp.notVeryEffectiveAgainstTyps = new List<Typ>()
             {
-                poisonTyp, flyingTyp, psychoTyp, bugTyp, fairyTyp
+                poisonTyp, flyingTyp,  psychictyp, bugTyp, fairyTyp
             };
 
             fightingTyp.superEffectiveAgainstTyps = new List<Typ>()
@@ -158,17 +158,17 @@ namespace Pokedex.Resources
                 grassTyp, fightingTyp, bugTyp
             };
 
-            psychoTyp.notVeryEffectiveAgainstTyps = new List<Typ>()
+            psychictyp.notVeryEffectiveAgainstTyps = new List<Typ>()
             {
-                psychoTyp, steelTyp
+                psychictyp, steelTyp
             };
 
-            psychoTyp.superEffectiveAgainstTyps = new List<Typ>()
+            psychictyp.superEffectiveAgainstTyps = new List<Typ>()
             {
                 fightingTyp, poisonTyp
             };
 
-            psychoTyp.noEffectTyps = new List<Typ>()
+            psychictyp.noEffectTyps = new List<Typ>()
             {
                 darkTyp
             };
@@ -180,7 +180,7 @@ namespace Pokedex.Resources
 
             bugTyp.superEffectiveAgainstTyps = new List<Typ>()
             {
-                grassTyp, psychoTyp, darkTyp
+                grassTyp,  psychictyp, darkTyp
             };
 
             rockTyp.notVeryEffectiveAgainstTyps = new List<Typ>()
@@ -200,7 +200,7 @@ namespace Pokedex.Resources
 
             ghostTyp.superEffectiveAgainstTyps = new List<Typ>()
             {
-                psychoTyp, ghostTyp
+                psychictyp, ghostTyp
             };
 
             ghostTyp.noEffectTyps = new List<Typ>()
@@ -230,7 +230,7 @@ namespace Pokedex.Resources
 
             darkTyp.superEffectiveAgainstTyps = new List<Typ>()
             {
-                psychoTyp, ghostTyp
+                psychictyp, ghostTyp
             };
 
             steelTyp.notVeryEffectiveAgainstTyps = new List<Typ>()
@@ -255,9 +255,8 @@ namespace Pokedex.Resources
 
             typs = new List<Typ>()
             {
-                normalTyp, fairyTyp, waterTyp, grassTyp, electricTyp, iceTyp, fightingTyp, poisonTyp, groundTyp,
-                flyingTyp,
-                psychoTyp, bugTyp, rockTyp, ghostTyp, dragonTyp, darkTyp, steelTyp, fairyTyp
+                normalTyp, fireTyp, waterTyp, grassTyp, electricTyp, iceTyp, fightingTyp, poisonTyp, groundTyp,
+                flyingTyp, psychictyp, bugTyp, rockTyp, ghostTyp, dragonTyp, darkTyp, steelTyp, fairyTyp
             };
         }
     }

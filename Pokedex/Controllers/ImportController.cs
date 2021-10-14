@@ -21,7 +21,6 @@ namespace Pokedex.Controllers
         }
         
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult ImportPokemon(IFormFile file)
         {
             IList<string> pokemonsContentFromFile = csvToStringConverter.GetContentFromFile(file);

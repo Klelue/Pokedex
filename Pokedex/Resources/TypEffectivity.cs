@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Resources;
-using System.Security.Cryptography.X509Certificates;
 using Pokedex.Exception;
 
 namespace Pokedex.Constants

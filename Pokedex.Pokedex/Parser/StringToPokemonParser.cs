@@ -12,9 +12,6 @@ namespace Pokedex.Parser
 {
     public class StringToPokemonParser : IStringToPokemonParser
     {
-        private static readonly ResourceManager ResourceManager =
-            new ResourceManager("Pokedex.Resources.ExceptionMessages", Assembly.GetExecutingAssembly());
-
         public Pokemon ParseStringToPokemon(string stringValue, IPokemonValidator pokemonValidator,
             PokedexDbContext dbContext)
         {
@@ -47,8 +44,7 @@ namespace Pokedex.Parser
             }
             catch
             {
-                var message = string.Format(ResourceManager.GetString("NoInt") ?? string.Empty, value, whatToParse);
-                throw new NoIntException(message);
+                throw new NoIntException(value, whatToParse);
             }
         }
 
@@ -60,8 +56,7 @@ namespace Pokedex.Parser
             }
             catch
             {
-                var message = ResourceManager.GetString("NoBool");
-                throw new NoBoolException(message);
+                throw new NoBoolException();
             }
         }
     }

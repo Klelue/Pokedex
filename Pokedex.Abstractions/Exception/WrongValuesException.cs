@@ -1,8 +1,15 @@
-﻿namespace Pokedex.Abstractions.Exception
+﻿using System.Reflection;
+using System.Resources;
+
+namespace Pokedex.Abstractions.Exception
 {
     public class WrongValuesException : System.Exception
     {
-        public WrongValuesException(string message) : base(message)
+        private static readonly ResourceManager ResourceManager =
+            new ResourceManager("Pokedex.Resources.ExceptionMessages", Assembly.GetExecutingAssembly());
+
+
+        public WrongValuesException() : base( ResourceManager.GetString("WrongValues"))
         {
         }
     }

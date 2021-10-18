@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Pokedex.Interfaces;
+using Pokedex.Abstractions.Converters;
+using Pokedex.Abstractions.Services;
 
-
-namespace Pokedex.Controllers
+namespace Pokedex.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -26,7 +26,5 @@ namespace Pokedex.Controllers
             importService.ImportPokemons(pokemonsContentFromFile);
             return Ok();
         }
-
-
     }
 }

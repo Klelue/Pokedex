@@ -5,15 +5,20 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Pokedex.Abstractions.Converters;
+using Pokedex.Abstractions.Parsers;
+using Pokedex.Abstractions.Services;
+using Pokedex.Abstractions.Validators;
+using Pokedex.Api.Middleware;
 using Pokedex.Converters;
-using Pokedex.Interfaces;
-using Pokedex.Middleware;
+using Pokedex.Database.Abstractions.Repositories;
+using Pokedex.Database.Contexts;
+using Pokedex.Database.Repositories;
 using Pokedex.Parser;
-using Pokedex.Repositories;
 using Pokedex.Services;
 using Pokedex.Validators;
 
-namespace Pokedex
+namespace Pokedex.Api
 {
     public class Startup
     {

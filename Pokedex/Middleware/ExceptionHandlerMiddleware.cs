@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Pokedex.Exception;
-using Pokedex.Models;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Pokedex.Abstractions.Exception;
+using Pokedex.Api.Models;
 
-namespace Pokedex.Middleware
+namespace Pokedex.Api.Middleware
 {
     public class ExceptionHandlerMiddleware
     {

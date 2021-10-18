@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Pokedex
+namespace Pokedex.Api
 {
     public class Program
     {

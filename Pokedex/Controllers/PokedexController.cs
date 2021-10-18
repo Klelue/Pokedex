@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Pokedex.Interfaces;
-using Pokedex.Models;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Pokedex.Abstractions.Services;
+using Pokedex.Database.Abstractions.Entities;
 
-namespace Pokedex.Controllers
+namespace Pokedex.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -16,7 +16,7 @@ namespace Pokedex
 
         public DbSet<Pokemon> Pokemon { get; set; }
 
-        public DbSet<Typ> Typ { get; set; }
+        public DbSet<Models.Type> Type { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,13 +27,13 @@ namespace Pokedex
         {
             modelBuilder.Entity<Pokemon>().HasKey(pokemon => new {pokemon.nationalDexNumber, pokemon.name});
             GeneratedTyps generaterTyps = new GeneratedTyps();
-            List<Typ> typs = generaterTyps.GetTyps();
+            List<Models.Type> typs = generaterTyps.GetTyps();
             foreach (var typ in typs)
             {
-                modelBuilder.Entity<Typ>().HasData(typ);
+                modelBuilder.Entity<Models.Type>().HasData(typ);
             }
             
-            modelBuilder.Entity<Typ>().HasKey(typ => typ.typName);
+            modelBuilder.Entity<Models.Type>().HasKey(typ => typ.typeName);
         }
 
 

@@ -151,7 +151,7 @@ namespace Pokedex.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Typ {0} is not a valid typ. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Type {0} is not a valid typ. ähnelt.
         /// </summary>
         public static string WrongTyp {
             get {

@@ -12,9 +12,9 @@ namespace Pokedex.Models
 
         public string name { get; set; }
 
-        public Typ type1 { get; set; }
+        public Type type1 { get; set; }
 
-        public Typ type2 { get; set; }
+        public Type type2 { get; set; }
 
         public int total { get; set; }
 

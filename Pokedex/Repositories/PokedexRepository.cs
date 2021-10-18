@@ -26,9 +26,9 @@ namespace Pokedex.Repositories
                 .Include(pokemon => pokemon.type1).Include(p => p.type2).ToList();
         }
 
-        public List<Pokemon> findAllPokemonsWithTypOF(string typName)
+        public List<Pokemon> FindAllPokemonsWithTypeOF(string typeName)
         {
-            return dbContext.Pokemon.Where(pokemon => pokemon.type1.typName.Equals(typName) || pokemon.type2.typName.Equals(typName))
+            return dbContext.Pokemon.Where(pokemon => pokemon.type1.typeName.Equals(typeName) || pokemon.type2.typeName.Equals(typeName))
                 .Include(pokemon => pokemon.type1).Include(p => p.type2).ToList();
         }
 

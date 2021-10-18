@@ -6,7 +6,7 @@ using Pokedex.Exception;
 
 namespace Pokedex.Constants
 {
-    public class TypEffectivity
+    public class TypeEffectivity
     {
 
         private static readonly ResourceManager ResourceManager =
@@ -38,7 +38,7 @@ namespace Pokedex.Constants
             ".-....+-......++-."
         };
 
-        private static readonly string[] TypNames =
+        private static readonly string[] TypeNames =
         {
             "Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground",
             "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"
@@ -47,55 +47,55 @@ namespace Pokedex.Constants
         
         private int GetTypIndex(string typName)
         {
-            for (int i = 0; i < TypNames.Length; i++)
+            for (int i = 0; i < TypeNames.Length; i++)
             {
-                if (TypNames[i].Equals(typName))
+                if (TypeNames[i].Equals(typName))
                 {
                     return i;
                 }
             }
 
-            string message = string.Format(ResourceManager.GetString("WrongTyp") ?? String.Empty, typName);
-            throw new WrongTypException(message);
+            string message = string.Format(ResourceManager.GetString("WrongType") ?? String.Empty, typName);
+            throw new WrongTypeException(message);
         }
 
-        private List<string> GetEffectivityList(int typIndex, char kindOfEffectivty)
+        private List<string> GetEffectivityList(int typeIndex, char kindOfEffectivty)
         {
             List<string> effectivityTyps = new List<string>();
 
-            for (int i = 0; i < EffictivityOfTyps[typIndex].Length; i++)
+            for (int i = 0; i < EffictivityOfTyps[typeIndex].Length; i++)
             {
-                char currentEffectivity = EffictivityOfTyps[typIndex][i];
+                char currentEffectivity = EffictivityOfTyps[typeIndex][i];
 
                 if (currentEffectivity.Equals(kindOfEffectivty))
                 {
-                    effectivityTyps.Add(TypNames[i]);
+                    effectivityTyps.Add(TypeNames[i]);
                 }
             }
 
             return effectivityTyps;
         }
 
-        public List<string> GetListOfVeryEffectivityForTypName(string typName)
+        public List<string> GetListOfVeryEffectivityForTyepName(string typeName)
         {
-            int typIndex = GetTypIndex(typName);
-            List<string> veryEffectivTyps = GetEffectivityList(typIndex, VeryEffectivity);
+            int typeIndex = GetTypIndex(typeName);
+            List<string> veryEffectivTyps = GetEffectivityList(typeIndex, VeryEffectivity);
 
             return veryEffectivTyps;
         }
 
-        public List<string> GetListOfLessEffectivityForTypName(string typName)
+        public List<string> GetListOfLessEffectivityForTypeName(string typeName)
         {
-            int typIndex = GetTypIndex(typName);
-            List<string> lessEffectivTyps = GetEffectivityList(typIndex, LessEffectivity);
+            int typeIndex = GetTypIndex(typeName);
+            List<string> lessEffectivTyps = GetEffectivityList(typeIndex, LessEffectivity);
 
             return lessEffectivTyps;
         }
 
-        public List<string> GetListOfNoEffectivityForTypName(string typName)
+        public List<string> GetListOfNoEffectivityForTypeName(string typeName)
         {
-            int typIndex = GetTypIndex(typName);
-            List<string> noEffectivTyps = GetEffectivityList(typIndex, NoEffectivity);
+            int typeIndex = GetTypIndex(typeName);
+            List<string> noEffectivTyps = GetEffectivityList(typeIndex, NoEffectivity);
 
             return noEffectivTyps;
         }

@@ -9,6 +9,6 @@ namespace Pokedex.Interfaces
 
         public IList<Pokemon> GetPokemonWithDexNumber(int dexNumber);
 
-        public IList<Pokemon> GetAllPokemonsWithTypOf(string typName);
+        public IList<Pokemon> GetAllPokemonsWithTypeOf(string typName);
     }
 }

@@ -31,10 +31,10 @@ namespace Pokedex.Controllers
             return pokemonService.GetPokemonWithDexNumber(number);
         }
 
-        [HttpGet("typname/{typName}")]
+        [HttpGet("typname/{typeName}")]
         public IEnumerable<Pokemon> GetPokemonWithTypName(string typName)
         {
-            return pokemonService.GetAllPokemonsWithTypOf(typName);
+            return pokemonService.GetAllPokemonsWithTypeOf(typName);
         }
     }
 }

@@ -15,20 +15,20 @@ namespace Pokedex.Middleware
         private const string ResponseContentType = "application/problem+json";
 
         private readonly RequestDelegate next;
-        private readonly IDictionary<Type, Func<HttpContext, System.Exception, Task>> exceptionHandlers;
+        private readonly IDictionary<System.Type, Func<HttpContext, System.Exception, Task>> exceptionHandlers;
 
         public ExceptionHandlerMiddleware(RequestDelegate next)
         {
             this.next = next;
 
-            exceptionHandlers = new Dictionary<Type, Func<HttpContext, System.Exception, Task>>
+            exceptionHandlers = new Dictionary<System.Type, Func<HttpContext, System.Exception, Task>>
             {
                 {typeof(InvalidCsvDataException), HandleIvalidCsvDataException},
                 {typeof(NoBoolException), HandleNoBoolException},
                 {typeof(NoIntException), HandleNoIntException},
                 {typeof(NonUniquePokemonException), HandleNonUniquePokemonException},
                 {typeof(TotalOutOfRangeException), HandleTotalOutOfRangeException},
-                {typeof(WrongTypException), HandleWrongTypException},
+                {typeof(WrongTypeException), HandleWrongTypException},
                 {typeof(WrongValuesException), HandleWrongValueException},
                 {typeof(PokemonNotFoundException), HandlePokemonNotFoundException},
                 {typeof(DexNumberOutOfRangeException), HandleDexNumberOutOfRangeExcpetion},
@@ -51,7 +51,7 @@ namespace Pokedex.Middleware
 
         private Task HandleExceptionAsync(HttpContext context, System.Exception exception)
         {
-            Type type = exception.GetType();
+            System.Type type = exception.GetType();
             if (exceptionHandlers.ContainsKey(type))
             {
                 return exceptionHandlers[type].Invoke(context, exception);

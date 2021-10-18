@@ -147,8 +147,8 @@
   <data name="WrongFileFormat" xml:space="preserve">
     <value>Wrong File Format. It should be {0}.</value>
   </data>
-  <data name="WrongTyp" xml:space="preserve">
-    <value>Typ {0} is not a valid typ.</value>
+  <data name="WrongType" xml:space="preserve">
+    <value>Type {0} is not a valid typeName.</value>
   </data>
   <data name="WrongValues" xml:space="preserve">
     <value>Stats not same as total.</value>

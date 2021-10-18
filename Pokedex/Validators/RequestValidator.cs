@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -43,13 +44,13 @@ namespace Pokedex.Validators
             }
         }
 
-        public void ValidateTyp(string typName, PokedexDbContext context)
+        public void ValidateType(string typeName, PokedexDbContext context)
         {
-            Typ typ = context.Typ.Find(typName);
-            if (typ == null)
+            Models.Type type = context.Type.Find(typeName);
+            if (type == null)
             {
-                var message = string.Format(ResourceManager.GetString("WrongTyp") ?? String.Empty, typName);
-                throw new WrongTypException(message);
+                var message = string.Format(ResourceManager.GetString("WrongType") ?? String.Empty, typeName);
+                throw new WrongTypeException(message);
             }
         }
 

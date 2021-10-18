@@ -65,14 +65,14 @@ namespace Pokedex.Migrations
                     b.ToTable("Pokemon");
                 });
 
-            modelBuilder.Entity("Pokedex.Models.Typ", b =>
+            modelBuilder.Entity("Pokedex.Models.Type", b =>
                 {
-                    b.Property<string>("typName")
+                    b.Property<string>("typeName")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("typName");
+                    b.HasKey("typeName");
 
-                    b.ToTable("Typ");
+                    b.ToTable("Type");
 
                     b.HasData(
                         new
@@ -151,11 +151,11 @@ namespace Pokedex.Migrations
 
             modelBuilder.Entity("Pokedex.Models.Pokemon", b =>
                 {
-                    b.HasOne("Pokedex.Models.Typ", "type1")
+                    b.HasOne("Pokedex.Models.Type", "type1")
                         .WithMany()
                         .HasForeignKey("type1typName");
 
-                    b.HasOne("Pokedex.Models.Typ", "type2")
+                    b.HasOne("Pokedex.Models.Type", "type2")
                         .WithMany()
                         .HasForeignKey("type2typName");
 

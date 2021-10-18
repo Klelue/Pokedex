@@ -12,6 +12,6 @@ namespace Pokedex.Interfaces
 
         public void ValidatesValues(Pokemon pokemon);
 
-        public Typ ValidateTyp(string typ, PokedexDbContext dbContext);
+        public Type ValidateTyp(string typeName, PokedexDbContext dbContext);
     }
 }

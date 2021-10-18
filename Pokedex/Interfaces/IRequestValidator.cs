@@ -11,6 +11,6 @@ namespace Pokedex.Interfaces
 
         public void ValidateFoundPokemon(IList<Pokemon> pokemons);
 
-        public void ValidateTyp(string typName, PokedexDbContext context);
+        public void ValidateType(string typeName, PokedexDbContext context);
     }
 }

@@ -9,7 +9,7 @@ namespace Pokedex.Interfaces
 
         List<Pokemon> FindPokemonWithDexNumber(int nationalDexNumber);
 
-        List<Pokemon> findAllPokemonsWithTypOF(string typName);
+        List<Pokemon> FindAllPokemonsWithTypeOF(string typeName);
 
         void Save(IEnumerable<Pokemon> pokemons);
 

@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Resources;
 
 
-
 namespace Pokedex.Validators
 {
     public class PokemonValidator : IPokemonValidator
@@ -18,16 +17,16 @@ namespace Pokedex.Validators
 
         public void ValidateUniquenessForPokemon(IList<Pokemon> pokemons)
         {
-            IEnumerable<Pokemon> notUniquePokemons = pokemons.Where(pokemon =>
+            var notUniquePokemons = pokemons.Where(pokemon =>
                 pokemons
                     .Count(p => p.nationalDexNumber == pokemon.nationalDexNumber && p.name.Equals(pokemon.name)) > 1);
-            
+
 
             if (notUniquePokemons.Any())
             {
-                string notUniquePokemonNationalDexNumbersAsString = string.Join(", ", notUniquePokemons);
-                string message = string.Format(
-                        ResourceManager.GetString("NoUniquePokemon") ?? string.Empty,
+                var notUniquePokemonNationalDexNumbersAsString = string.Join(", ", notUniquePokemons);
+                var message = string.Format(
+                    ResourceManager.GetString("NoUniquePokemon") ?? string.Empty,
                     notUniquePokemonNationalDexNumbersAsString);
                 throw new NonUniquePokemonException(message);
             }
@@ -37,7 +36,7 @@ namespace Pokedex.Validators
         {
             if (total > Constants.PokemonConstants.MaxTotal || total < Constants.PokemonConstants.MinTotal)
             {
-                string message = string.Format(ResourceManager.GetString("TotalOutOfRange") ?? string.Empty, total);
+                var message = string.Format(ResourceManager.GetString("TotalOutOfRange") ?? string.Empty, total);
                 throw new TotalOutOfRangeException(message);
             }
         }
@@ -45,28 +44,28 @@ namespace Pokedex.Validators
         //All values together same as total
         public void ValidatesValues(Pokemon pokemon)
         {
-            int sumValues = pokemon.attack + pokemon.defense + pokemon.spAttack + 
+            var sumValues = pokemon.attack + pokemon.defense + pokemon.spAttack +
                             pokemon.spDefense + pokemon.speed + pokemon.healthPoints;
 
             if (sumValues != pokemon.total)
             {
-                string message = ResourceManager.GetString("WrongValues");
+                var message = ResourceManager.GetString("WrongValues");
                 throw new WrongValuesException(message);
             }
         }
 
-        public Typ ValidateTyp(string typName, PokedexDbContext dbContext)
+        public Type ValidateTyp(string typeName, PokedexDbContext dbContext)
         {
-            if (typName.Length > 1)
+            if (typeName.Length > 1)
             {
-                Typ typ = dbContext.Typ.Find(typName);
-                if (typ == null)
+                var type = dbContext.Type.Find(typeName);
+                if (type == null)
                 {
-                    string message = string.Format(ResourceManager.GetString("WrongTyp") ?? string.Empty, typName);
-                    throw new WrongTypException(message);
+                    var message = string.Format(ResourceManager.GetString("WrongType") ?? string.Empty, typeName);
+                    throw new WrongTypeException(message);
                 }
 
-                return typ;
+                return type;
             }
 
             return null;

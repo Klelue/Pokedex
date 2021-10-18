@@ -33,14 +33,14 @@ namespace Pokedex.Services
             return pokemonWithDexNumber;
         }
 
-        public IList<Pokemon> GetAllPokemonsWithTypOf(string typName)
+        public IList<Pokemon> GetAllPokemonsWithTypeOf(string typName)
         {
-            requestValidator.ValidateTyp(typName, context);
+            requestValidator.ValidateType(typName, context);
             CheckIfPokemonImported();
 
-            IList<Pokemon> pokemonWithTypOf = pokedexRepositorx.findAllPokemonsWithTypOF(typName);
-            requestValidator.ValidateFoundPokemon(pokemonWithTypOf);
-            return pokemonWithTypOf;
+            IList<Pokemon> pokemonWithTypeOf = pokedexRepositorx.FindAllPokemonsWithTypeOF(typName);
+            requestValidator.ValidateFoundPokemon(pokemonWithTypeOf);
+            return pokemonWithTypeOf;
         }
 
         private void CheckIfPokemonImported()

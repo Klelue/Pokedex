@@ -7,7 +7,7 @@ namespace Pokedex.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Typ",
+                name: "Type",
                 columns: table => new
                 {
                     typName = table.Column<string>(type: "TEXT", nullable: false)
@@ -41,105 +41,105 @@ namespace Pokedex.Migrations
                     table.ForeignKey(
                         name: "FK_Pokemon_Typ_type1typName",
                         column: x => x.type1typName,
-                        principalTable: "Typ",
-                        principalColumn: "typName",
+                        principalTable: "Type",
+                        principalColumn: "typeName",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Pokemon_Typ_type2typName",
                         column: x => x.type2typName,
-                        principalTable: "Typ",
-                        principalColumn: "typName",
+                        principalTable: "Type",
+                        principalColumn: "typeName",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Normal");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Dark");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Dragon");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Ghost");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Rock");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Bug");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Psychic");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Flying");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Ground");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Poison");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Fighting");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Ice");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Electric");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Grass");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Water");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Fire");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Steel");
 
             migrationBuilder.InsertData(
-                table: "Typ",
-                column: "typName",
+                table: "Type",
+                column: "typeName",
                 value: "Fairy");
 
             migrationBuilder.CreateIndex(
@@ -159,7 +159,7 @@ namespace Pokedex.Migrations
                 name: "Pokemon");
 
             migrationBuilder.DropTable(
-                name: "Typ");
+                name: "Type");
         }
     }
 }
